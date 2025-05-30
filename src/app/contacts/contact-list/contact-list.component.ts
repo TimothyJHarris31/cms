@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, output } from '@angular/core';
 import Contact from '../contact.model';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'cms-contact-list',
@@ -7,23 +8,13 @@ import Contact from '../contact.model';
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css',
 })
-export class ContactListComponent {
-  contacts: Contact[] = [
-    {
-      id: '1',
-      name: 'R. Kent Jackson',
-      email: 'jacksonk@byui.edu',
-      phone: '208-496-3771',
-      imageUrl: 'images/jacksonk.jpg',
-      group: [],
-    },
-    {
-      id: '2',
-      name: 'Rex Barzee',
-      email: 'brazeer@byui.edu',
-      phone: '208-496-3768',
-      imageUrl: 'images/barzeer.jpg',
-      group: [],
-    },
-  ];
+export class ContactListComponent implements OnInit {
+  private contactService = inject(ContactService);
+  contacts!: Contact[];
+  ngOnInit(): void {
+    this.contacts = this.contactService.getContacts();
+  }
+  onSelected(contact: Contact) {
+    this.contactService.contactSelectedEvent.emit(contact);
+  }
 }

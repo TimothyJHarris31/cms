@@ -16,21 +16,31 @@
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#">Documents</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Messages</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+        <li class="nav-item" (click)="onSelect('documents')">
+          <a class="nav-link" href="#">Documents</a>
+        </li>
+        <li class="nav-item" (click)="onSelect('messages')">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+        <li class="nav-item" (click)="onSelect('contacts')">
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown" cmsDropdown>
+          <button
             href="#"
             id="navbarDropdown"
-            class="nav-link dropdown-toggle"
-            data-bs-toggle="dropdown-menu"
-            role="button"
-            >User <span class="caret"></span
-          ></a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            class="btn btn-default dropdown-toggle"
+            data-bs-toggle="dropdown"
+          >
+            User <span class="caret"></span>
+          </button>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            cmsDropdown
+          >
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><hr class="dropdown-divider" /></li>

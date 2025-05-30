@@ -1,4 +1,6 @@
-<cms-header></cms-header>
-<div class="container">
-  <cms-contacts></cms-contacts>
+<cms-header (viewSelected)="selectedView = $event"></cms-header>
+<div class="container mt-3">
+  <cms-contacts *ngIf="selectedView === 'contacts'"></cms-contacts>
+  <cms-message-list *ngIf="selectedView === 'messages'"></cms-message-list>
+  <cms-documents *ngIf="selectedView === 'documents'"></cms-documents>
 </div>

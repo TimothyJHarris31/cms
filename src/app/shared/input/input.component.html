@@ -1,0 +1,10 @@
+<div class="form-floating mb-3">
+  <input
+    [type]="type()"
+    class="form-control-plaintext"
+    [id]="name()"
+    [value]="value()"
+    (input)="input($event)"
+  />
+  <label [for]="name()">{{ label() }}</label>
+</div>

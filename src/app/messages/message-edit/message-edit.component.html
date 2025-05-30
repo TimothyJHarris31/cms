@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <form id="document-edit">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <cms-input
+            type="text"
+            name="subject"
+            label="Subject"
+            [value]="subject()"
+            (update)="updateSubject($event)"
+          ></cms-input>
+        </div>
+        <div class="col-sm-12 form-group">
+          <cms-input
+            type="text"
+            name="message"
+            label="Message"
+            [value]="message()"
+            (update)="updateMessage($event)"
+          ></cms-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="button" (click)="send()">
+            Send
+          </button>
+          <button class="btn btn-danger" type="button" (click)="clear()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

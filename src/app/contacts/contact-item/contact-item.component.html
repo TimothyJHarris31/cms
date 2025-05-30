@@ -1,0 +1,12 @@
+<div>
+  <span class="align-middle">{{ contact().name }}</span>
+
+  @if(contact().imageUrl && contact().imageUrl !== '') {
+  <img
+    [src]="contact().imageUrl"
+    class="float-end img-responsive"
+    style="max-height: 100px"
+    [alt]="getContactInitals()"
+  />
+  }
+</div>
