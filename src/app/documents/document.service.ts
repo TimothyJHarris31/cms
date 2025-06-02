@@ -8,13 +8,20 @@ import { Document } from './document.model';
 export class DocumentService implements OnInit {
   private documents: Document[] = MOCKDOCUMENTS;
   @Output() documentSelectedEvent = new EventEmitter<Document>();
+  @Output() documentChangedEvent = new EventEmitter<Document[]>();
+
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
-  getDocuments() {
+  list() {
     return this.documents;
   }
-  getDocument(name: string) {
-    return this.documents.find((document) => document.name === name)!;
+  getById(id: string) {
+    return this.documents.find((document) => document.id === id)!;
+  }
+
+  delete(id: string) {
+    this.documents = this.documents.filter((document) => document.id !== id);
+    this.documentChangedEvent.emit(this.documents);
   }
 }

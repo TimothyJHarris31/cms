@@ -12,7 +12,12 @@ export class DocumentListComponent implements OnInit {
   documents!: Document[];
   private documentService = inject(DocumentService);
   ngOnInit(): void {
-    this.documents = this.documentService.getDocuments();
+    this.documents = this.documentService.list();
+    this.documentService.documentChangedEvent.subscribe(
+      (documents: Document[]) => {
+        this.documents = documents;
+      }
+    );
   }
   onSelected(document: Document) {
     this.documentService.documentSelectedEvent.emit(document);

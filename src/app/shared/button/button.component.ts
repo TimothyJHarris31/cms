@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
-  type = input<
+  theme = input<
     | 'primary'
     | 'secondary'
     | 'success'
@@ -18,4 +18,6 @@ export class ButtonComponent {
     | 'dark'
     | 'link'
   >();
+
+  type = input<'button' | 'submit' | 'reset'>('button');
 }

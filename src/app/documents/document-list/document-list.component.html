@@ -3,13 +3,13 @@
     <div class="row">
       <div class="col-auto me-auto">Add Documents</div>
       <div class="col-auto align-self-center">
-        <cms-button type="success">New Document</cms-button>
+        <cms-button theme="success">New Document</cms-button>
       </div>
     </div>
   </div>
-  <div class="card-body">
+  <div class="card-body nav nav-pills">
     <div *ngFor="let document of documents">
-      <div (click)="onSelected(document)">
+      <div>
         <cms-document-item [document]="document"></cms-document-item>
       </div>
     </div>
