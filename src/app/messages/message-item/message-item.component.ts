@@ -12,6 +12,6 @@ export class MessageItemComponent {
   private messageService = inject(ContactService);
   message = input<Message>({ id: '', subject: '', msgText: '', sender: '' });
   getSender(id: string) {
-    return this.messageService.getContact(id)?.name;
+    return this.messageService.getById(id)?.name;
   }
 }
