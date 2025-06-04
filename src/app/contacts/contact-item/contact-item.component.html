@@ -1,12 +1,18 @@
-<div>
-  <span class="align-middle">{{ contact().name }}</span>
+<li
+  class="list-group-item nav-link"
+  routerLink="/contacts/{{ contact().id }}"
+  routerLinkActive="active"
+>
+  <div class="row">
+    <span class="col-auto me-auto align-self-center">{{ contact().name }}</span>
 
-  @if(contact().imageUrl && contact().imageUrl !== '') {
-  <img
-    [src]="contact().imageUrl"
-    class="float-end img-responsive"
-    style="max-height: 100px"
-    [alt]="getContactInitals()"
-  />
-  }
-</div>
+    @if(contact().imageUrl && contact().imageUrl !== '') {
+    <img
+      [src]="contact().imageUrl"
+      class="img-responsive col-auto"
+      style="max-height: 100px"
+      [alt]="getContactInitals()"
+    />
+    }
+  </div>
+</li>

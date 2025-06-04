@@ -12,12 +12,18 @@ export class ContactService {
   }
 
   contactSelectedEvent = new EventEmitter<Contact>();
+  contactChangedEvent = new EventEmitter<Contact[]>();
 
-  getContacts() {
+  list() {
     return this.contacts;
   }
 
-  getContact(id: string) {
+  getById(id: string) {
     return this.contacts.find((contact) => contact.id === id);
+  }
+
+  delete(id: string) {
+    this.contacts = this.contacts.filter((contact) => contact.id !== id);
+    this.contactChangedEvent.emit(this.contacts);
   }
 }

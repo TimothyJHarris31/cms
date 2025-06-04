@@ -3,15 +3,13 @@
     <div class="row">
       <h2 class="col-auto me-auto"><strong>Contacts</strong></h2>
       <div class="col-auto align-self-center">
-        <cms-button type="success">New Contact</cms-button>
+        <cms-button theme="success" routerLink="new">New Contact</cms-button>
       </div>
     </div>
   </div>
   <div class="card-body">
-    <ul class="list-group" *ngFor="let contact of contacts">
-      <li class="list-group-item" (click)="onSelected(contact)">
-        <cms-contact-item [contact]="contact"></cms-contact-item>
-      </li>
+    <ul class="list-group gap-3" *ngFor="let contact of contacts">
+      <cms-contact-item [contact]="contact"></cms-contact-item>
     </ul>
   </div>
 </div>

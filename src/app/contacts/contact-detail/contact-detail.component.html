@@ -1,16 +1,16 @@
-@if (contact() != null) {
+@if (contact) {
 <div class="card">
   <div class="card-header">
     <div class="row">
       <div class="col-md-12">
-        <h4>{{ contact()?.name }}</h4>
+        <h4>{{ contact.name }}</h4>
       </div>
       <div class="col-auto me-auto">
-        <img src="{{ contact()?.imageUrl }}" style="max-height: 100px" />
+        <img src="{{ contact.imageUrl }}" style="max-height: 100px" />
       </div>
       <div class="col-auto align-self-center">
-        <cms-button type="primary">Edit</cms-button>
-        <cms-button type="danger">Delete</cms-button>
+        <cms-button theme="primary" routerLink="edit">Edit</cms-button>
+        <cms-button theme="danger" (click)="delete()">Delete</cms-button>
       </div>
     </div>
   </div>
@@ -21,14 +21,14 @@
           type="text"
           name="email"
           label="Email"
-          [value]="contact()?.name ?? ''"
+          [value]="contact.name"
         ></cms-input>
         <input
           type="email"
           class="form-control-plaintext"
           id="email"
           readonly
-          [value]="contact()?.email"
+          [value]="contact.email"
         />
         <label for="email">Email:</label>
       </div>
@@ -38,7 +38,7 @@
           class="form-control-plaintext"
           id="phone"
           readonly
-          [value]="contact()?.phone"
+          [value]="contact.phone"
         />
         <label for="phone">Phone:</label>
       </div>
